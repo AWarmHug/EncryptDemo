@@ -45,8 +45,8 @@ JNICALL
 Java_com_warm_encryptdemo_GetSignature_getKey
         (JNIEnv *env, jclass clazz, jobject context_object) {
 
-    if (veriPackage(env, clazz, context_object)) {
-
+    if (!veriPackage(env, clazz, context_object)) {
+        return (env)->NewStringUTF("sign error");
     }
 
     jclass context_class = env->GetObjectClass(context_object);
