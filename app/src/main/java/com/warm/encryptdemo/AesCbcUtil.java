@@ -22,7 +22,7 @@ import javax.crypto.spec.SecretKeySpec;
  * 时间：2018-01-29 11:20
  * 描述：
  */
-public class MyAesCbc {
+public class AesCbcUtil {
     public static final String ALGORITHM = "AES";
 
     public static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";

@@ -57,26 +57,28 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: ------------------------------------------------------");
 
-        String key = MyAesCbc.generateKeyToString(MyAesCbc.KEY_SIZE_256);
+        String key = AesCbcUtil.generateKeyToString(AesCbcUtil.KEY_SIZE_256);
         Log.d(TAG, "onCreate: key=" + key);
 
-        String encryptText = MyAesCbc.encrypt(str, key);
+        String encryptText = AesCbcUtil.encrypt(str, key);
         Log.d(TAG, "onCreate: encryptText=" + encryptText);
 
-        String decryptText = MyAesCbc.decrypt(encryptText, key);
+        String decryptText = AesCbcUtil.decrypt(encryptText, key);
         Log.d(TAG, "onCreate: decryptText=" + decryptText);
 
         Log.d(TAG, "onCreate: ------------------------------------------------------");
-//        KeyPair keyPair = MyRSA.generateKeyPair(MyRSA.LENGTH_2048);
+//        KeyPair keyPair = RsaUtil.generateKeyPair(RsaUtil.LENGTH_2048);
 //        PublicKey publicKey = keyPair.getPublic();
 //        PrivateKey privateKey = keyPair.getPrivate();
 //        Log.d(TAG, "onCreate: publicKey=" + new String(publicKey.getEncoded()));
 //        Log.d(TAG, "onCreate: privateKey=" + new String(privateKey.getEncoded()));
-        String encryptRsa = MyRSA.encryptByPublicKey("sjsjskdkjsnkdnjsdnakndsnjds", MyRSA.generatePublic(publicKey));
+        String encryptRsa = RsaUtil.encryptByPublicKey("sjsjskdkjsnkdnjsdnakndsnjds", RsaUtil.generatePublic(publicKey));
         Log.d(TAG, "onCreate: " + encryptRsa);
-        String decryptRsa = MyRSA.decryptToStringByPrivateKey(encryptRsa, MyRSA.generatePrivate(privateKey));
+        String decryptRsa = RsaUtil.decryptToStringByPrivateKey(encryptRsa, RsaUtil.generatePrivate(privateKey));
 
         Log.d(TAG, "onCreate: " + decryptRsa);
+
+        Log.d(TAG, "onCreate: " + GetSignature.getSignature(this));
 
         tv3.setText(GetSignature.getKey(this));
 

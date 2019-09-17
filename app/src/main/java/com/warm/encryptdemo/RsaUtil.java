@@ -24,7 +24,7 @@ import javax.crypto.NoSuchPaddingException;
  * 时间：2018-01-29 15:14
  * 描述：
  */
-public class MyRSA {
+public class RsaUtil {
     public static final String ALGORITHM = "RSA";
     public static final int LENGTH_1024 = 1024;
     public static final int LENGTH_2048 = 2048;
