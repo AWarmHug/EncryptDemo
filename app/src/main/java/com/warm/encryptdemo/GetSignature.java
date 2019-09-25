@@ -15,9 +15,9 @@ import java.security.cert.X509Certificate;
 
 public class GetSignature {
 
-    static {
-        System.loadLibrary("native-lib");
-    }
+//    static {
+//        System.loadLibrary("native-lib");
+//    }
 
     public final static String MD5 = "MD5";
     public final static String SHA1 = "SHA1";

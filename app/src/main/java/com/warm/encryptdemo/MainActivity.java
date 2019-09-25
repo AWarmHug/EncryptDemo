@@ -1,11 +1,14 @@
 package com.warm.encryptdemo;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
@@ -80,7 +83,36 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: " + GetSignature.getSignature(this));
 
-        tv3.setText(GetSignature.getKey(this));
+//        tv3.setText(GetSignature.getKey(this));
+
+
+        String value = readAssetsTxt(this, "data");
+        long time = System.currentTimeMillis();
+        String v = AesCbcUtil.decrypt(value, Base64.encodeToString("".getBytes(), Base64.DEFAULT));
+        Log.d(TAG, "onCreate1: " + (System.currentTimeMillis() - time));
+        tv3.setText(v);
 
     }
+
+    public static String readAssetsTxt(Context context, String fileName) {
+        try {
+            //Return an AssetManager instance for your application's package
+            InputStream is = context.getAssets().open(fileName);
+            int size = is.available();
+            // Read the entire asset into a local byte buffer.
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            // Convert the buffer into a string.
+            String text = new String(buffer, "utf-8");
+            // Finally stick the string into the text view.
+            return text;
+        } catch (IOException e) {
+            // Should never happen!
+//            throw new RuntimeException(e);
+            e.printStackTrace();
+        }
+        return "读取错误，请检查文件名";
+    }
+
 }
