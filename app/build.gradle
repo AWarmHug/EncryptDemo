@@ -11,14 +11,14 @@ android {
         dataBinding.enabled = true
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-//        externalNativeBuild {
-//            cmake {
-//                cppFlags ""
-//                ndk {
-//                    abiFilters "armeabi-v7a"  //输出指定三种abi体系结构下的so库。
-//                }
-//            }
-//        }
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+                ndk {
+                    abiFilters "armeabi-v7a"  //输出指定三种abi体系结构下的so库。
+                }
+            }
+        }
     }
     buildTypes {
         release {
@@ -26,11 +26,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    externalNativeBuild {
-//        cmake {
-//            path "CMakeLists.txt"
-//        }
-//    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
 }
 
 dependencies {
