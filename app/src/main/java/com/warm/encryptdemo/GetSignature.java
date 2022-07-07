@@ -27,6 +27,8 @@ public class GetSignature {
     //获取可以
     public static native String getKey(Object context);
 
+    public static native String encrypt(Object context,String text);
+
 
     public static String getSignature(Context context) {
         try {

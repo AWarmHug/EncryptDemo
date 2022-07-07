@@ -2,6 +2,9 @@
 // Created by bin.ren on 2019/9/16.
 // https://blog.csdn.net/qq_34106574/article/details/84298944
 // https://blog.csdn.net/cloverjf/article/details/78676881
+// 加密
+// https://learnku.com/articles/67364#f63354
+// https://blog.csdn.net/weixin_43255013/article/details/123210201
 //
 
 #include <jni.h>
@@ -110,4 +113,9 @@ Java_com_warm_encryptdemo_GetSignature_getKey
         return (env)->NewStringUTF("sign error");
 
     }
+}extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_warm_encryptdemo_GetSignature_encrypt(JNIEnv *env, jclass clazz, jobject context,
+                                               jstring text) {
+    // TODO: implement encrypt()
 }

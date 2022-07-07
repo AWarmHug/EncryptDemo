@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //ZEBb+lEVFRmNFA/jMQuiN7Bia0RL/rWCrunCszoR0wk!
         final String key = AesCbcUtil.generateKeyToString(AesCbcUtil.KEY_SIZE_256);
         Log.d(TAG, "onCreate: key=" + key);
 
